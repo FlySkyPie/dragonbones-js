@@ -52,7 +52,7 @@ export class ArmatureData extends BaseObject {
     /**
      * @private
      */
-    public type?: ArmatureType;
+    public type: ArmatureType = ArmatureType.Armature;
     /**
      * - The animation frame rate.
      * @version DragonBones 3.0
@@ -63,15 +63,15 @@ export class ArmatureData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public frameRate?: number;
+    public frameRate: number = 0;
     /**
      * @private
      */
-    public cacheFrameRate?: number;
+    public cacheFrameRate: number = 0;
     /**
      * @private
      */
-    public scale?: number;
+    public scale: number = 1.0;
     /**
      * - The armature name.
      * @version DragonBones 3.0
@@ -82,7 +82,7 @@ export class ArmatureData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public name?: string;
+    public name: string = "";
     /**
      * @private
      */
@@ -167,7 +167,7 @@ export class ArmatureData extends BaseObject {
     /**
      * @private
      */
-    public parent?: DragonBonesData;
+    public parent: DragonBonesData | null = null;
 
     protected _onClear(): void {
         for (const action of this.defaultActions) {
@@ -231,7 +231,7 @@ export class ArmatureData extends BaseObject {
         this.defaultAnimation = null;
         this.canvas = null;
         this.userData = null;
-        this.parent = null as any; //
+        this.parent = null; //
     }
     /**
      * @internal
@@ -281,10 +281,6 @@ export class ArmatureData extends BaseObject {
      * @internal
      */
     public cacheFrames(frameRate: number): void {
-        if (this.cacheFrameRate === undefined) {
-            throw new Error(`this.cacheFrameRate is undefined.`);
-        }
-
         if (this.cacheFrameRate > 0) { // TODO clear cache.
             return;
         }
@@ -298,8 +294,8 @@ export class ArmatureData extends BaseObject {
      * @internal
      */
     public setCacheFrame(globalTransformMatrix: Matrix, transform: Transform): number {
-        if (this.parent === undefined) {
-            throw new Error(`this.parent is undefined.`);
+        if (this.parent === null) {
+            throw new Error(`this.parent is null.`);
         }
 
         const dataArray = this.parent.cachedFrames;
@@ -323,8 +319,8 @@ export class ArmatureData extends BaseObject {
      * @internal
      */
     public getCacheFrame(globalTransformMatrix: Matrix, transform: Transform, arrayOffset: number): void {
-        if (this.parent === undefined) {
-            throw new Error(`this.parent is undefined.`);
+        if (this.parent === null) {
+            throw new Error(`this.parent is nul.`);
         }
 
         const dataArray = this.parent.cachedFrames;
@@ -537,23 +533,23 @@ export class BoneData extends BaseObject {
     /**
      * @private
      */
-    public inheritTranslation?: boolean;
+    public inheritTranslation: boolean = false;
     /**
      * @private
      */
-    public inheritRotation?: boolean;
+    public inheritRotation: boolean = false;
     /**
      * @private
      */
-    public inheritScale?: boolean;
+    public inheritScale: boolean = false;
     /**
      * @private
      */
-    public inheritReflection?: boolean;
+    public inheritReflection: boolean = false;
     /**
      * @private
      */
-    public type?: BoneType;
+    public type: BoneType = BoneType.Bone;
     /**
      * - The bone length.
      * @version DragonBones 3.0
@@ -564,11 +560,11 @@ export class BoneData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public length?: number;
+    public length: number = 0;
     /**
      * @private
      */
-    public alpha?: number;
+    public alpha: number = 1.0;
     /**
      * - The bone name.
      * @version DragonBones 3.0
@@ -579,7 +575,7 @@ export class BoneData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public name?: string;
+    public name: string = "";
     /**
      * @private
      */
@@ -667,23 +663,23 @@ export class SlotData extends BaseObject {
     /**
      * @private
      */
-    public blendMode?: BlendMode;
+    public blendMode: BlendMode = BlendMode.Normal;
     /**
      * @private
      */
-    public displayIndex?: number;
+    public displayIndex: number = 0;
     /**
      * @private
      */
-    public zOrder?: number;
+    public zOrder: number = 0;
     /**
      * @private
      */
-    public zIndex?: number;
+    public zIndex: number = 0;
     /**
      * @private
      */
-    public alpha?: number;
+    public alpha: number = 1.0;
     /**
      * - The slot name.
      * @version DragonBones 3.0
@@ -694,11 +690,11 @@ export class SlotData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public name?: string;
+    public name: string = "";
     /**
      * @private
      */
-    public color: ColorTransform = null as any; // Initial value.
+    public color: ColorTransform | null = null; // Initial value.
     /**
      * @private
      */
@@ -713,7 +709,7 @@ export class SlotData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public parent?: BoneData;
+    public parent: BoneData | null = null;
 
     protected _onClear(): void {
         if (this.userData !== null) {
@@ -726,8 +722,8 @@ export class SlotData extends BaseObject {
         this.zIndex = 0;
         this.alpha = 1.0;
         this.name = "";
-        this.color = null as any; //
+        this.color = null; //
         this.userData = null;
-        this.parent = null as any; //
+        this.parent = null; //
     }
 }

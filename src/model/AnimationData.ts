@@ -43,21 +43,21 @@ export class AnimationData extends BaseObject {
      * - FrameIntArray.
      * @internal
      */
-    public frameIntOffset: number | undefined;
+    public frameIntOffset: number = 0;
     /**
      * - FrameFloatArray.
      * @internal
      */
-    public frameFloatOffset: number | undefined;
+    public frameFloatOffset: number = 0;
     /**
      * - FrameArray.
      * @internal
      */
-    public frameOffset: number | undefined;
+    public frameOffset: number = 0;
     /**
      * @private
      */
-    public blendType: AnimationBlendType | undefined;
+    public blendType: AnimationBlendType = AnimationBlendType.None;
     /**
      * - The frame count of the animation.
      * @version DragonBones 3.0
@@ -68,7 +68,7 @@ export class AnimationData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public frameCount: number | undefined;
+    public frameCount: number = 0;
     /**
      * - The play times of the animation. [0: Loop play, [1~N]: Play N times]
      * @version DragonBones 3.0
@@ -79,7 +79,7 @@ export class AnimationData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public playTimes: number | undefined;
+    public playTimes: number = 0;
     /**
      * - The duration of the animation. (In seconds)
      * @version DragonBones 3.0
@@ -90,11 +90,11 @@ export class AnimationData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public duration: number | undefined;
+    public duration: number = 0.0;
     /**
      * @private
      */
-    public scale: number | undefined;
+    public scale: number = 1.0;
     /**
      * - The fade in time of the animation. (In seconds)
      * @version DragonBones 3.0
@@ -105,11 +105,11 @@ export class AnimationData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public fadeInTime: number | undefined;
+    public fadeInTime: number = 0.0;
     /**
      * @private
      */
-    public cacheFrameRate: number | undefined;
+    public cacheFrameRate: number = 0.0;
     /**
      * - The animation name.
      * @version DragonBones 3.0
@@ -120,7 +120,7 @@ export class AnimationData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public name: string | undefined;
+    public name: string = "";
     /**
      * @private
      */
@@ -160,7 +160,7 @@ export class AnimationData extends BaseObject {
     /**
      * @private
      */
-    public parent: ArmatureData | undefined;
+    public parent: ArmatureData | null = null;
 
     protected _onClear(): void {
         for (let k in this.boneTimelines) {
@@ -231,7 +231,7 @@ export class AnimationData extends BaseObject {
         // this.slotCachedFrameIndices.clear();
         this.actionTimeline = null;
         this.zOrderTimeline = null;
-        this.parent = null as any; //
+        this.parent = null; //
     }
     /**
      * @internal

@@ -31,12 +31,12 @@ export class CanvasData extends BaseObject {
         return "[class dragonBones.CanvasData]";
     }
 
-    public hasBackground?: boolean;
-    public color?: number;
-    public x?: number;
-    public y?: number;
-    public width?: number;
-    public height?: number;
+    public hasBackground: boolean = false;
+    public color: number = 0x000000;
+    public x: number = 0;
+    public y: number = 0;
+    public width: number = 0;
+    public height: number = 0;
 
     protected _onClear(): void {
         this.hasBackground = false;

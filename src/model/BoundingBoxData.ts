@@ -55,15 +55,15 @@ export abstract class BoundingBoxData extends BaseObject {
     /**
      * @private
      */
-    public color: number | undefined;
+    public color: number = 0x000000;
     /**
      * @private
      */
-    public width: number | undefined;
+    public width: number = 0.0;
     /**
      * @private
      */
-    public height: number | undefined;
+    public height: number = 0.0;
 
     protected _onClear(): void {
         this.color = 0x000000;
@@ -676,11 +676,11 @@ export class PolygonBoundingBoxData extends BoundingBoxData {
     /**
      * @private
      */
-    public x?: number;
+    public x: number = 0.0;
     /**
      * @private
      */
-    public y?: number;
+    public y: number = 0.0;
     /**
      * - The polygon vertices.
      * @version DragonBones 5.1

@@ -38,19 +38,19 @@ export abstract class TextureAtlasData extends BaseObject {
     /**
      * @private
      */
-    public autoSearch?: boolean;
+    public autoSearch: boolean = false;
     /**
      * @private
      */
-    public width?: number;
+    public width: number = 0;
     /**
      * @private
      */
-    public height?: number;
+    public height: number = 0;
     /**
      * @private
      */
-    public scale?: number;
+    public scale: number = 1.0;
     /**
      * - The texture atlas name.
      * @version DragonBones 3.0
@@ -61,7 +61,7 @@ export abstract class TextureAtlasData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public name?: string;
+    public name: string = "";
     /**
      * - The image path of the texture atlas.
      * @version DragonBones 3.0
@@ -72,7 +72,7 @@ export abstract class TextureAtlasData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public imagePath?: string;
+    public imagePath: string = "";
     /**
      * @private
      */
@@ -150,17 +150,17 @@ export abstract class TextureData extends BaseObject {
         return new Rectangle();
     }
 
-    public rotated?: boolean;
-    public name?: string;
+    public rotated: boolean = false;
+    public name: string = "";
     public readonly region: Rectangle = new Rectangle();
-    public parent?: TextureAtlasData;
+    public parent: TextureAtlasData | null = null;
     public frame: Rectangle | null = null; // Initial value.
 
     protected _onClear(): void {
         this.rotated = false;
         this.name = "";
         this.region.clear();
-        this.parent = null as any; //
+        this.parent = null; //
         this.frame = null;
     }
 

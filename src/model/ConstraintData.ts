@@ -30,19 +30,19 @@ import { PathDisplayData } from "./DisplayData";
  * @private
  */
 export abstract class ConstraintData extends BaseObject {
-    public order: number | undefined;
-    public name: string | undefined;
-    public type?: ConstraintType;
-    public target?: BoneData;
-    public root: BoneData | undefined;
-    public bone: BoneData | null | undefined;
+    public order: number = 0;
+    public name: string = "";
+    public type: ConstraintType = ConstraintType.IK;
+    public target: BoneData | null = null;
+    public root: BoneData | null = null;
+    public bone: BoneData | null = null;
 
     protected _onClear(): void {
         this.order = 0;
         this.name = "";
         this.type = ConstraintType.IK;
-        this.target = null as any; //
-        this.root = null as any; //
+        this.target = null; //
+        this.root = null; //
         this.bone = null;
     }
 }
@@ -54,9 +54,9 @@ export class IKConstraintData extends ConstraintData {
         return "[class dragonBones.IKConstraintData]";
     }
 
-    public scaleEnabled?: boolean;
-    public bendPositive: boolean | undefined;
-    public weight: number | undefined;
+    public scaleEnabled: boolean = false;
+    public bendPositive: boolean = false;
+    public weight: number = 1.0;
 
     protected _onClear(): void {
         super._onClear();
@@ -74,25 +74,25 @@ export class PathConstraintData extends ConstraintData {
         return "[class dragonBones.PathConstraintData]";
     }
 
-    public pathSlot?: SlotData;
-    public pathDisplayData?: PathDisplayData;
+    public pathSlot: SlotData | null = null;
+    public pathDisplayData: PathDisplayData | null = null;
     public bones: Array<BoneData> = [];
 
-    public positionMode?: PositionMode;
-    public spacingMode: SpacingMode | undefined;
-    public rotateMode?: RotateMode;
+    public positionMode: PositionMode = PositionMode.Fixed;
+    public spacingMode: SpacingMode = SpacingMode.Fixed;
+    public rotateMode: RotateMode = RotateMode.Chain;
 
-    public position?: number;
-    public spacing?: number;
-    public rotateOffset?: number;
-    public rotateMix?: number;
-    public translateMix?: number;
+    public position: number = 0.0;
+    public spacing: number = 0.0;
+    public rotateOffset: number = 0.0;
+    public rotateMix: number = 0.0;
+    public translateMix: number = 0.0;
 
     protected _onClear(): void {
         super._onClear();
 
-        this.pathSlot = null as any;
-        this.pathDisplayData = null as any;
+        this.pathSlot = null;
+        this.pathDisplayData = null;
         this.bones.length = 0;
 
         this.positionMode = PositionMode.Fixed;

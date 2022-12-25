@@ -36,10 +36,10 @@ import { ActionData } from "./UserData";
  * @private
  */
 export class GeometryData {
-    public isShared?: boolean;
-    public inheritDeform?: boolean;
-    public offset?: number;
-    public data?: DragonBonesData;
+    public isShared: boolean = false;
+    public inheritDeform: boolean = false;
+    public offset: number = 0;
+    public data: DragonBonesData | null = null;
     public weight: WeightData | null = null; // Initial value.
 
     public clear(): void {
@@ -50,7 +50,7 @@ export class GeometryData {
         this.isShared = false;
         this.inheritDeform = false;
         this.offset = 0;
-        this.data = null as any;
+        this.data = null;
         this.weight = null;
     }
 
@@ -61,7 +61,7 @@ export class GeometryData {
     }
 
     public get vertexCount(): number {
-        if (this.data === undefined || this.offset === undefined || this.data.intArray === undefined) {
+        if (this.data === null || this.offset === undefined || this.data.intArray === null) {
             throw new Error();
         }
 
@@ -70,7 +70,7 @@ export class GeometryData {
     }
 
     public get triangleCount(): number {
-        if (this.data === undefined || this.offset === undefined || this.data.intArray === undefined) {
+        if (this.data === null || this.offset === undefined || this.data.intArray === null) {
             throw new Error();
         }
 
@@ -83,16 +83,16 @@ export class GeometryData {
  */
 export abstract class DisplayData extends BaseObject {
     public type?: DisplayType;
-    public name?: string;
-    public path?: string;
+    public name: string = "";
+    public path: string = "";
     public readonly transform: Transform = new Transform();
-    public parent?: SkinData;
+    public parent: SkinData | null = null;
 
     protected _onClear(): void {
         this.name = "";
         this.path = "";
         this.transform.identity();
-        this.parent = null as any; //
+        this.parent = null; //
     }
 }
 /**
@@ -122,9 +122,9 @@ export class ArmatureDisplayData extends DisplayData {
         return "[class dragonBones.ArmatureDisplayData]";
     }
 
-    public inheritAnimation?: boolean;
+    public inheritAnimation: boolean = false;
     public readonly actions: Array<ActionData> = [];
-    public armature?: ArmatureData | null;
+    public armature: ArmatureData | null = null;
 
     protected _onClear(): void {
         super._onClear();
@@ -192,8 +192,8 @@ export class PathDisplayData extends DisplayData {
     public static toString(): string {
         return "[class dragonBones.PathDisplayData]";
     }
-    public closed?: boolean;
-    public constantSpeed?: boolean;
+    public closed: boolean = false;
+    public constantSpeed: boolean = false;
     public readonly geometry: GeometryData = new GeometryData();
     public readonly curveLengths: Array<number> = [];
 
@@ -215,8 +215,8 @@ export class WeightData extends BaseObject {
         return "[class dragonBones.WeightData]";
     }
 
-    public count?: number;
-    public offset?: number;
+    public count: number = 0;
+    public offset: number = 0;
     public readonly bones: Array<BoneData> = [];
 
     protected _onClear(): void {

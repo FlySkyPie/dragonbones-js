@@ -46,7 +46,7 @@ export class DragonBonesData extends BaseObject {
     /**
      * @private
      */
-    public autoSearch?: boolean;
+    public autoSearch: boolean = false;
     /**
      * - The animation frame rate.
      * @version DragonBones 3.0
@@ -57,7 +57,7 @@ export class DragonBonesData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public frameRate?: number;
+    public frameRate: number = 0;
     /**
      * - The data version.
      * @version DragonBones 3.0
@@ -68,7 +68,7 @@ export class DragonBonesData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public version?: string;
+    public version: string = "";
     /**
      * - The DragonBones data name.
      * The name is consistent with the DragonBones project name.
@@ -81,11 +81,11 @@ export class DragonBonesData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public name?: string;
+    public name: string = "";
     /**
      * @private
      */
-    public stage?: ArmatureData | null;
+    public stage: ArmatureData | null = null;
     /**
      * @internal
      */
@@ -112,35 +112,35 @@ export class DragonBonesData extends BaseObject {
     /**
      * @internal
      */
-    public binary?: ArrayBuffer;
+    public binary: ArrayBuffer | null = null;
     /**
      * @internal
      */
-    public intArray?: Int16Array;
+    public intArray: Int16Array | null = null;
     /**
      * @internal
      */
-    public floatArray?: Float32Array;
+    public floatArray: Float32Array | null = null;
     /**
      * @internal
      */
-    public frameIntArray?: Int16Array;
+    public frameIntArray: Int16Array | null = null;
     /**
      * @internal
      */
-    public frameFloatArray?: Float32Array;
+    public frameFloatArray: Float32Array | null = null;
     /**
      * @internal
      */
-    public frameArray?: Int16Array;
+    public frameArray: Int16Array | null = null;
     /**
      * @internal
      */
-    public timelineArray?: Uint16Array;
+    public timelineArray: Uint16Array | null = null;
     /**
      * @internal
      */
-    public colorArray?: Int16Array | Uint16Array;
+    public colorArray: Int16Array | Uint16Array | null = null;
     /**
      * @private
      */
@@ -165,14 +165,14 @@ export class DragonBonesData extends BaseObject {
         this.cachedFrames.length = 0;
         this.armatureNames.length = 0;
         //this.armatures.clear();
-        this.binary = null as any; //
-        this.intArray = null as any; //
-        this.floatArray = null as any; //
-        this.frameIntArray = null as any; //
-        this.frameFloatArray = null as any; //
-        this.frameArray = null as any; //
-        this.timelineArray = null as any; //
-        this.colorArray = null as any; //
+        this.binary = null; //
+        this.intArray = null; //
+        this.floatArray = null; //
+        this.frameIntArray = null; //
+        this.frameFloatArray = null; //
+        this.frameArray = null; //
+        this.timelineArray = null; //
+        this.colorArray = null; //
         this.userData = null;
     }
     /**

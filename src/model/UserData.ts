@@ -144,8 +144,8 @@ export class ActionData extends BaseObject {
         return "[class dragonBones.ActionData]";
     }
 
-    public type?: ActionType;
-    public name?: string; // Frame event name | Sound event name | Animation name
+    public type: ActionType = ActionType.Play;
+    public name: string = ""; // Frame event name | Sound event name | Animation name
     public bone: BoneData | null = null;
     public slot: SlotData | null = null;
     public data: UserData | null = null; //

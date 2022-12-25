@@ -47,7 +47,7 @@ export class AnimationConfig extends BaseObject {
     /**
      * @private
      */
-    public pauseFadeOut: boolean | undefined;
+    public pauseFadeOut: boolean = true;
     /**
      * - Fade out the pattern of other animation states when the animation state is fade in.
      * This property is typically used to specify the substitution of multiple animation states blend.
@@ -62,27 +62,27 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public fadeOutMode: AnimationFadeOutMode | undefined;
+    public fadeOutMode: AnimationFadeOutMode = AnimationFadeOutMode.All;
     /**
      * @private
      */
-    public fadeOutTweenType: TweenType | undefined;
+    public fadeOutTweenType: TweenType = TweenType.Line;
     /**
      * @private
      */
-    public fadeOutTime: number | undefined;
+    public fadeOutTime: number = -1.0;
     /**
      * @private
      */
-    public pauseFadeIn: boolean | undefined;
+    public pauseFadeIn: boolean = true;
     /**
      * @private
      */
-    public actionEnabled: boolean | undefined;
+    public actionEnabled: boolean = true;
     /**
      * @private
      */
-    public additive: boolean | undefined;
+    public additive: boolean = false;
     /**
      * - Whether the animation state has control over the display property of the slots.
      * Sometimes blend a animation state does not want it to control the display properties of the slots,
@@ -99,7 +99,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public displayControl: boolean | undefined;
+    public displayControl: boolean = true;
     /**
      * - Whether to reset the objects without animation to the armature pose when the animation state is start to play.
      * This property should usually be set to false when blend multiple animation states.
@@ -114,11 +114,11 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.1
      * @language zh_CN
      */
-    public resetToPose: boolean | undefined;
+    public resetToPose: boolean = true;
     /**
      * @private
      */
-    public fadeInTweenType: TweenType | undefined;
+    public fadeInTweenType: TweenType = TweenType.Line;
     /**
      * - The play times. [0: Loop play, [1~N]: Play N times]
      * @version DragonBones 3.0
@@ -129,7 +129,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public playTimes: number | undefined;
+    public playTimes: number = -1;
     /**
      * - The blend layer.
      * High layer animation state will get the blend weight first.
@@ -146,7 +146,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public layer: number | undefined;
+    public layer: number = 0;
     /**
      * - The start time of play. (In seconds)
      * @default 0.0
@@ -159,7 +159,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public position: number | undefined;
+    public position: number = 0.0;
     /**
      * - The duration of play.
      * [-1: Use the default value of the animation data, 0: Stop play, (0~N]: The duration] (In seconds)
@@ -174,10 +174,10 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public duration: number | undefined;
+    public duration: number = -1.0;
     /**
      * - The play speed.
-     * The value is an overlay relationship with {@link dragonBones.Animation#timeScale}.
+     * The value is an overlay relationship with {@link Animation#timeScale}.
      * [(-N~0): Reverse play, 0: Stop play, (0~1): Slow play, 1: Normal play, (1~N): Fast play]
      * @default 1.0
      * @version DragonBones 3.0
@@ -185,13 +185,13 @@ export class AnimationConfig extends BaseObject {
      */
     /**
      * - 播放速度。
-     * 该值与 {@link dragonBones.Animation#timeScale} 是叠加关系。
+     * 该值与 {@link Animation#timeScale} 是叠加关系。
      * [(-N~0): 倒转播放, 0: 停止播放, (0~1): 慢速播放, 1: 正常播放, (1~N): 快速播放]
      * @default 1.0
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public timeScale: number | undefined;
+    public timeScale: number = 1.0;
     /**
      * - The blend weight.
      * @default 1.0
@@ -204,7 +204,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public weight: number | undefined;
+    public weight: number = 1.0;
     /**
      * - The fade in time.
      * [-1: Use the default value of the animation data, [0~N]: The fade in time] (In seconds)
@@ -219,7 +219,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public fadeInTime: number | undefined;
+    public fadeInTime: number = -1.0;
     /**
      * - The auto fade out time when the animation state play completed.
      * [-1: Do not fade out automatically, [0~N]: The fade out time] (In seconds)
@@ -234,7 +234,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public autoFadeOutTime: number | undefined;
+    public autoFadeOutTime: number = -1.0;
     /**
      * - The name of the animation state. (Can be different from the name of the animation data)
      * @version DragonBones 5.0
@@ -245,7 +245,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public name: string | undefined;
+    public name: string = "";
     /**
      * - The animation data name.
      * @version DragonBones 5.0
@@ -256,7 +256,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public animation: string | undefined;
+    public animation: string = "";
     /**
      * - The blend group name of the animation state.
      * This property is typically used to specify the substitution of multiple animation states blend.
@@ -271,7 +271,7 @@ export class AnimationConfig extends BaseObject {
      * @version DragonBones 5.0
      * @language zh_CN
      */
-    public group: string | undefined;
+    public group: string = "";
     /**
      * @private
      */
