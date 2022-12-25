@@ -205,6 +205,8 @@ export class DragonBonesData extends BaseObject {
      * @language zh_CN
      */
     public getArmature(armatureName: string): ArmatureData | null {
-        return armatureName in this.armatures ? this.armatures[armatureName] : null;
+        const result = armatureName in this.armatures ? this.armatures[armatureName] : null;
+
+        return result;
     }
 }

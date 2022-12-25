@@ -430,15 +430,6 @@ export abstract class Slot extends TransformObject {
             this._textureData = this._displayFrame.getTextureData();
         }
 
-
-        if (this._textureData === null) {
-            throw new Error(`this._textureData is null.`);
-        }
-
-        if (this._textureData.parent === null) {
-            throw new Error(`this._textureData.parent is null.`);
-        }
-
         if (this._armature === null) {
             throw new Error(`this._armature is null.`);
         }
@@ -453,6 +444,10 @@ export abstract class Slot extends TransformObject {
         ) {
             // Update pivot offset.
             if (this._geometryData === null && this._textureData !== null) {
+                if (this._textureData.parent === null) {
+                    throw new Error(`this._textureData.parent is null.`);
+                }
+
                 const imageDisplayData = ((displayData !== null && displayData.type === DisplayType.Image) ? displayData : rawDisplayData) as ImageDisplayData; //
                 const scale = this._textureData.parent.scale * this._armature._armatureData.scale;
                 const frame = this._textureData.frame;

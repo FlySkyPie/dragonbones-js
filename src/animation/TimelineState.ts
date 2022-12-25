@@ -128,15 +128,6 @@ export class ActionTimelineState extends TimelineState {
             throw new Error(`this._animationData is null.`);
         }
 
-        if (this._timelineArray === null) {
-            throw new Error(`this._timelineArray is null.`);
-        }
-
-
-        if (this._frameArray === null) {
-            throw new Error(`this._frameArray is null.`);
-        }
-
         if (this._animationData.parent === null) {
             throw new Error(`this._animationData.parent is null.`);
         }
@@ -144,12 +135,6 @@ export class ActionTimelineState extends TimelineState {
         if (this._armature._dragonBones === null) {
             throw new Error(` this._armature._dragonBones is null.`);
         }
-
-        if (this._frameIndices === null) {
-            throw new Error(` this._frameIndices is null.`);
-        }
-
-
 
         if (this._setCurrentTime(passedTime)) {
             const eventActive = this._animationState._parent === null && this._animationState.actionEnabled;
@@ -200,6 +185,11 @@ export class ActionTimelineState extends TimelineState {
             if (this._frameCount > 1) {
                 const timelineData = this._timelineData as TimelineData;
                 const timelineFrameIndex = Math.floor(this.currentTime * this._frameRate); // uint
+
+                if (this._frameIndices === null) {
+                    throw new Error(` this._frameIndices is null.`);
+                }
+
                 const frameIndex = this._frameIndices[timelineData.frameIndicesOffset + timelineFrameIndex];
 
                 if (this._frameIndex !== frameIndex) { // Arrive at frame.                   
@@ -224,6 +214,11 @@ export class ActionTimelineState extends TimelineState {
                             while (crossedFrameIndex >= 0) {
                                 const frameOffset = this._animationData.frameOffset + this._timelineArray[timelineData.offset + BinaryOffset.TimelineFrameOffset + crossedFrameIndex];
                                 // const framePosition = this._frameArray[frameOffset] * this._frameRateR; // Precision problem
+
+                                if (this._frameArray === null) {
+                                    throw new Error(`this._frameArray is null.`);
+                                }
+
                                 const framePosition = this._frameArray[frameOffset] / this._frameRate;
 
                                 if (
@@ -256,6 +251,11 @@ export class ActionTimelineState extends TimelineState {
                                 crossedFrameIndex = this._frameIndices[timelineData.frameIndicesOffset + prevFrameIndex];
                                 const frameOffset = this._animationData.frameOffset + this._timelineArray[timelineData.offset + BinaryOffset.TimelineFrameOffset + crossedFrameIndex];
                                 // const framePosition = this._frameArray[frameOffset] * this._frameRateR; // Precision problem
+
+                                if (this._frameArray === null) {
+                                    throw new Error(`this._frameArray is null.`);
+                                }
+
                                 const framePosition = this._frameArray[frameOffset] / this._frameRate;
 
                                 if (this.currentPlayTimes === prevPlayTimes) { // Start.
@@ -282,6 +282,11 @@ export class ActionTimelineState extends TimelineState {
                                 }
 
                                 const frameOffset = this._animationData.frameOffset + this._timelineArray[timelineData.offset + BinaryOffset.TimelineFrameOffset + crossedFrameIndex];
+
+                                if (this._frameArray === null) {
+                                    throw new Error(`this._frameArray is null.`);
+                                }
+
                                 // const framePosition = this._frameArray[frameOffset] * this._frameRateR; // Precision problem
                                 const framePosition = this._frameArray[frameOffset] / this._frameRate;
 
@@ -308,7 +313,16 @@ export class ActionTimelineState extends TimelineState {
             else if (this._frameIndex < 0) {
                 this._frameIndex = 0;
                 if (this._timelineData !== null) {
+                    if (this._timelineArray === null) {
+                        throw new Error(`this._timelineArray is null.`);
+                    }
+
                     this._frameOffset = this._animationData.frameOffset + this._timelineArray[this._timelineData.offset + BinaryOffset.TimelineFrameOffset];
+
+                    if (this._frameArray === null) {
+                        throw new Error(`this._frameArray is null.`);
+                    }
+
                     // Arrive at frame.
                     const framePosition = this._frameArray[this._frameOffset] / this._frameRate;
 
@@ -830,15 +844,20 @@ export class SlotDisplayTimelineState extends TimelineState {
 
         const slot = this.target as Slot;
 
-        if (this._frameArray === null) {
-            throw new Error(`this._frameArray is null.`);
-        }
-
         if (slot._slotData === null) {
             throw new Error(`slot._slotData is null.`);
         }
 
-        const displayIndex = this._timelineData !== null ? this._frameArray[this._frameOffset + 1] : slot._slotData.displayIndex;
+        const displayIndex = (() => {
+            if (this._timelineData !== null) {
+                if (this._frameArray === null) {
+                    throw new Error(`this._frameArray is null.`);
+                }
+                return this._frameArray[this._frameOffset + 1];
+            }
+
+            return slot._slotData.displayIndex;
+        })()
 
         if (slot.displayIndex !== displayIndex) {
             slot._setDisplayIndex(displayIndex, true);

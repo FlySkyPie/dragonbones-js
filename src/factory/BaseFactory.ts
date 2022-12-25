@@ -137,6 +137,7 @@ export abstract class BaseFactory {
             if (dragonBonesName in this._dragonBonesDataMap) {
                 dragonBonesData = this._dragonBonesDataMap[dragonBonesName];
                 armatureData = dragonBonesData.getArmature(armatureName);
+                // console.log("[Dragonbones] armatureData:", armatureData)
             }
         }
 
@@ -145,6 +146,7 @@ export abstract class BaseFactory {
                 dragonBonesData = this._dragonBonesDataMap[k];
                 if (dragonBonesName.length === 0 || dragonBonesData.autoSearch) {
                     armatureData = dragonBonesData.getArmature(armatureName);
+                    // console.log("[Dragonbones] armatureData:", armatureData)
                     if (armatureData !== null) {
                         dragonBonesName = k;
                         break;
@@ -153,10 +155,12 @@ export abstract class BaseFactory {
             }
         }
 
+        // console.log("[Dragonbones] armatureData:", armatureData)
+
         if (armatureData !== null) {
             dataPackage.dataName = dragonBonesName;
             dataPackage.textureAtlasName = textureAtlasName;
-            dataPackage.data = dragonBonesData as any;
+            dataPackage.data = dragonBonesData;
             dataPackage.armature = armatureData;
             dataPackage.skin = null;
 
@@ -781,6 +785,8 @@ export abstract class BaseFactory {
         this._buildConstraints(dataPackage, armature);
         armature.invalidUpdate(null, true);
         armature.advanceTime(0.0); // Update armature pose.
+
+        // console.log("[Dragonbones]", armature);
 
         return armature;
     }
