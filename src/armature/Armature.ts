@@ -126,7 +126,7 @@ export class Armature extends BaseObject implements IAnimatable {
     /**
      * @internal
      */
-    public _dragonBones?: DragonBones;
+    public _dragonBones: DragonBones | null = null;
     private _clock: WorldClock | null = null; // Initial value.
     /**
      * @internal
@@ -183,13 +183,13 @@ export class Armature extends BaseObject implements IAnimatable {
         this._slots.length = 0;
         this._constraints.length = 0;
         this._actions.length = 0;
-        this._armatureData = null as any; //
-        this._animation = null as any; //
-        this._proxy = null as any; //
+        this._armatureData = null; //
+        this._animation = null; //
+        this._proxy = null; //
         this._display = null;
         this._replaceTextureAtlasData = null;
         this._replacedTexture = null;
-        this._dragonBones = null as any; //
+        this._dragonBones = null; //
         this._clock = null;
         this._parent = null;
     }
@@ -281,8 +281,8 @@ export class Armature extends BaseObject implements IAnimatable {
      * @language zh_CN
      */
     public dispose(): void {
-        if (this._dragonBones === undefined) {
-            throw new Error(` this._dragonBones is undefined.`);
+        if (this._dragonBones === null) {
+            throw new Error(` this._dragonBones is null.`);
         }
 
         if (this._armatureData !== null) {

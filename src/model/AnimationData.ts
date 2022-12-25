@@ -362,9 +362,9 @@ export class TimelineData extends BaseObject {
         return "[class dragonBones.TimelineData]";
     }
 
-    public type: TimelineType | undefined;
-    public offset: number | undefined; // TimelineArray.
-    public frameIndicesOffset: number | undefined; // FrameIndices.
+    public type: TimelineType = TimelineType.BoneAll;;
+    public offset: number = 0; // TimelineArray.
+    public frameIndicesOffset: number = -1; // FrameIndices.
 
     protected _onClear(): void {
         this.type = TimelineType.BoneAll;
@@ -380,8 +380,8 @@ export class AnimationTimelineData extends TimelineData {
         return "[class dragonBones.AnimationTimelineData]";
     }
 
-    public x?: number;
-    public y?: number;
+    public x: number = 0;
+    public y: number = 0;
 
     protected _onClear(): void {
         super._onClear();
