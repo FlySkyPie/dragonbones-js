@@ -188,7 +188,7 @@ export class EventObject extends BaseObject {
      * @version DragonBones 4.5
      * @language zh_CN
      */
-    public time?: number;
+    public time: number = 0.0;
     /**
      * - The event type。
      * @version DragonBones 4.5
@@ -199,7 +199,7 @@ export class EventObject extends BaseObject {
      * @version DragonBones 4.5
      * @language zh_CN
      */
-    public type?: EventStringType;
+    public type: EventStringType = "";
     /**
      * - The event name. (The frame event name or the frame sound name)
      * @version DragonBones 4.5
@@ -210,7 +210,7 @@ export class EventObject extends BaseObject {
      * @version DragonBones 4.5
      * @language zh_CN
      */
-    public name?: string;
+    public name: string = "";
     /**
      * - The armature that dispatch the event.
      * @see Armature
@@ -223,7 +223,7 @@ export class EventObject extends BaseObject {
      * @version DragonBones 4.5
      * @language zh_CN
      */
-    public armature?: Armature;
+    public armature: Armature | null = null;
     /**
      * - The bone that dispatch the event.
      * @see Bone
@@ -262,7 +262,7 @@ export class EventObject extends BaseObject {
      * @version DragonBones 4.5
      * @language zh_CN
      */
-    public animationState?: AnimationState;
+    public animationState: AnimationState | null = null;
     /**
      * @private
      */
@@ -288,10 +288,10 @@ export class EventObject extends BaseObject {
         this.time = 0.0;
         this.type = "";
         this.name = "";
-        this.armature = null as any;
+        this.armature = null;
         this.bone = null;
         this.slot = null;
-        this.animationState = null as any;
+        this.animationState = null;
         this.actionData = null;
         this.data = null;
     }

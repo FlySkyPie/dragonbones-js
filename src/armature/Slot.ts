@@ -21,7 +21,6 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { AnimationState } from "../animation/AnimationState";
 import { BaseObject } from "../core/BaseObject";
 import { BinaryOffset, BlendMode, BoneType, DisplayType, DragonBones } from "../core/DragonBones";
 import { EventObject } from "../event/EventObject";

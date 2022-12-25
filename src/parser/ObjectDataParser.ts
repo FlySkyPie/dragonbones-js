@@ -42,7 +42,7 @@ import { DataParser } from "./DataParser";
 /**
  * @private
  */
-export const enum FrameValueType {
+export enum FrameValueType {
     Step,
     Int,
     Float,

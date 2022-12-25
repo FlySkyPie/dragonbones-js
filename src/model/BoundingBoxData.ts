@@ -108,7 +108,7 @@ export abstract class BoundingBoxData extends BaseObject {
  * | 1001 | 1000 | 1010 |
  * ----------------------
  */
-const enum OutCode {
+enum OutCode {
     InSide = 0, // 0000
     Left = 1,   // 0001
     Right = 2,  // 0010

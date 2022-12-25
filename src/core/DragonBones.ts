@@ -29,7 +29,7 @@ import { BaseObject } from "./BaseObject";
 /**
  * @private
  */
-export const enum BinaryOffset {
+export enum BinaryOffset {
     WeigthBoneCount = 0,
     WeigthFloatOffset = 1,
     WeigthBoneIndices = 2,
@@ -61,7 +61,7 @@ export const enum BinaryOffset {
 /**
  * @private
  */
-export const enum ArmatureType {
+export enum ArmatureType {
     Armature = 0,
     MovieClip = 1,
     Stage = 2
@@ -69,14 +69,14 @@ export const enum ArmatureType {
 /**
  * @private
  */
-export const enum BoneType {
+export enum BoneType {
     Bone = 0,
     Surface = 1
 }
 /**
  * @private
  */
-export const enum DisplayType {
+export enum DisplayType {
     Image = 0,
     Armature = 1,
     Mesh = 2,
@@ -93,7 +93,7 @@ export const enum DisplayType {
  * @version DragonBones 5.0
  * @language zh_CN
  */
-export const enum BoundingBoxType {
+export enum BoundingBoxType {
     Rectangle = 0,
     Ellipse = 1,
     Polygon = 2
@@ -101,7 +101,7 @@ export const enum BoundingBoxType {
 /**
  * @private
  */
-export const enum ActionType {
+export enum ActionType {
     Play = 0,
     Frame = 10,
     Sound = 11
@@ -109,7 +109,7 @@ export const enum ActionType {
 /**
  * @private
  */
-export const enum BlendMode {
+export enum BlendMode {
     Normal = 0,
     Add = 1,
     Alpha = 2,
@@ -128,7 +128,7 @@ export const enum BlendMode {
 /**
  * @private
  */
-export const enum TweenType {
+export enum TweenType {
     None = 0,
     Line = 1,
     Curve = 2,
@@ -139,7 +139,7 @@ export const enum TweenType {
 /**
  * @private
  */
-export const enum TimelineType {
+export enum TimelineType {
     Action = 0,
     ZOrder = 1,
 
@@ -173,7 +173,7 @@ export const enum TimelineType {
  * @version DragonBones 5.5
  * @language zh_CN
  */
-export const enum OffsetMode {
+export enum OffsetMode {
     None,
     Additive,
     Override,
@@ -188,7 +188,7 @@ export const enum OffsetMode {
  * @version DragonBones 4.5
  * @language zh_CN
  */
-export const enum AnimationFadeOutMode {
+export enum AnimationFadeOutMode {
     /**
      * - Fade out the animation states of the same layer.
      * @language en_US
@@ -238,35 +238,35 @@ export const enum AnimationFadeOutMode {
 /**
  * @private
  */
-export const enum AnimationBlendType {
+export enum AnimationBlendType {
     None,
     E1D,
 }
 /**
  * @private
  */
-export const enum AnimationBlendMode {
+export enum AnimationBlendMode {
     Additive,
     Override,
 }
 /**
  * @private
  */
-export const enum ConstraintType {
+export enum ConstraintType {
     IK,
     Path
 }
 /**
  * @private
  */
-export const enum PositionMode {
+export enum PositionMode {
     Fixed,
     Percent
 }
 /**
  * @private
  */
-export const enum SpacingMode {
+export enum SpacingMode {
     Length,
     Fixed,
     Percent
@@ -274,7 +274,7 @@ export const enum SpacingMode {
 /**
  * @private
  */
-export const enum RotateMode {
+export enum RotateMode {
     Tangent,
     Chain,
     ChainScale
@@ -322,6 +322,10 @@ export class DragonBones {
                 const eventObject = this._events[i];
                 const armature = eventObject.armature;
 
+                if (armature === null) {
+                    throw new Error(`armature is null.`);
+                }
+
                 if (armature._armatureData !== null) { // May be armature disposed before advanceTime.
                     armature.eventDispatcher.dispatchDBEvent(eventObject.type, eventObject);
                     if (eventObject.type === EventObject.SOUND_EVENT) {
@@ -355,51 +359,4 @@ export class DragonBones {
     public get eventManager(): IEventDispatcher {
         return this._eventManager;
     }
-}
-
-//
-if (!console.warn) {
-    console.warn = function () { };
-}
-
-if (!console.assert) {
-    console.assert = function () { };
-}
-//
-if (!Date.now) {
-    Date.now = function now() {
-        return new Date().getTime();
-    };
-}
-// Weixin can not support typescript extends.
-var __extends: any = function (t: any, e: any) {
-    function r(this: any) {
-        this.constructor = t;
-    }
-    for (var i in e) {
-        if ((e as any).hasOwnProperty(i)) {
-            t[i] = e[i];
-        }
-    }
-    r.prototype = e.prototype, t.prototype = new (r as any)();
-};
-//
-if (typeof global === "undefined" && typeof window !== "undefined") {
-    var global = window as any;
-}
-//
-declare var exports: any;
-declare var module: any;
-declare var define: any;
-if (typeof exports === "object" && typeof module === "object") {
-    module.exports = dragonBones;
-}
-else if (typeof define === "function" && define["amd"]) {
-    define(["dragonBones"], function () { return dragonBones; });
-}
-else if (typeof exports === "object") {
-    exports = dragonBones;
-}
-else if (typeof global !== "undefined") {
-    global.dragonBones = dragonBones;
 }
