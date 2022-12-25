@@ -28,14 +28,14 @@ import { UserData } from "./UserData";
 /**
  * - The DragonBones data.
  * A DragonBones data contains multiple armature data.
- * @see dragonBones.ArmatureData
+ * @see ArmatureData
  * @version DragonBones 3.0
  * @language en_US
  */
 /**
  * - 龙骨数据。
  * 一个龙骨数据包含多个骨架数据。
- * @see dragonBones.ArmatureData
+ * @see ArmatureData
  * @version DragonBones 3.0
  * @language zh_CN
  */

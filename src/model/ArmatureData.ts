@@ -622,8 +622,8 @@ export class SurfaceData extends BoneData {
         return "[class dragonBones.SurfaceData]";
     }
 
-    public segmentX?: number;
-    public segmentY?: number;
+    public segmentX: number = 0;
+    public segmentY: number = 0;
     public readonly geometry: GeometryData = new GeometryData();
 
     protected _onClear(): void {

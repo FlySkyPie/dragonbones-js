@@ -49,7 +49,7 @@ export class SkinData extends BaseObject {
      * @version DragonBones 3.0
      * @language zh_CN
      */
-    public name?: string;
+    public name: string = "";
     /**
      * @private
      */
@@ -57,7 +57,7 @@ export class SkinData extends BaseObject {
     /**
      * @private
      */
-    public parent?: ArmatureData;
+    public parent: ArmatureData | null = null;
 
     protected _onClear(): void {
         for (let k in this.displays) {
@@ -73,7 +73,7 @@ export class SkinData extends BaseObject {
 
         this.name = "";
         // this.displays.clear();
-        this.parent = null as any; //
+        this.parent = null; //
     }
     /**
      * @internal

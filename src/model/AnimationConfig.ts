@@ -27,7 +27,7 @@ import { AnimationFadeOutMode, TweenType } from "../core/DragonBones";
 /**
  * - The animation config is used to describe all the information needed to play an animation state.
  * The API is still in the experimental phase and may encounter bugs or stability or compatibility issues when used.
- * @see dragonBones.AnimationState
+ * @see AnimationState
  * @beta
  * @version DragonBones 5.0
  * @language en_US
@@ -35,7 +35,7 @@ import { AnimationFadeOutMode, TweenType } from "../core/DragonBones";
 /**
  * - 动画配置用来描述播放一个动画状态所需要的全部信息。
  * 该 API 仍在实验阶段，使用时可能遭遇 bug 或稳定性或兼容性问题。
- * @see dragonBones.AnimationState
+ * @see AnimationState
  * @beta
  * @version DragonBones 5.0
  * @language zh_CN

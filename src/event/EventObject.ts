@@ -213,52 +213,52 @@ export class EventObject extends BaseObject {
     public name?: string;
     /**
      * - The armature that dispatch the event.
-     * @see dragonBones.Armature
+     * @see Armature
      * @version DragonBones 4.5
      * @language en_US
      */
     /**
      * - 发出该事件的骨架。
-     * @see dragonBones.Armature
+     * @see Armature
      * @version DragonBones 4.5
      * @language zh_CN
      */
     public armature?: Armature;
     /**
      * - The bone that dispatch the event.
-     * @see dragonBones.Bone
+     * @see Bone
      * @version DragonBones 4.5
      * @language en_US
      */
     /**
      * - 发出该事件的骨骼。
-     * @see dragonBones.Bone
+     * @see Bone
      * @version DragonBones 4.5
      * @language zh_CN
      */
     public bone: Bone | null = null;
     /**
      * - The slot that dispatch the event.
-     * @see dragonBones.Slot
+     * @see Slot
      * @version DragonBones 4.5
      * @language en_US
      */
     /**
      * - 发出该事件的插槽。
-     * @see dragonBones.Slot
+     * @see Slot
      * @version DragonBones 4.5
      * @language zh_CN
      */
     public slot: Slot | null = null;
     /**
      * - The animation state that dispatch the event.
-     * @see dragonBones.AnimationState
+     * @see AnimationState
      * @version DragonBones 4.5
      * @language en_US
      */
     /**
      * - 发出该事件的动画状态。
-     * @see dragonBones.AnimationState
+     * @see AnimationState
      * @version DragonBones 4.5
      * @language zh_CN
      */
@@ -272,13 +272,13 @@ export class EventObject extends BaseObject {
      */
     /**
      * - The custom data.
-     * @see dragonBones.CustomData
+     * @see CustomData
      * @version DragonBones 5.0
      * @language en_US
      */
     /**
      * - 自定义数据。
-     * @see dragonBones.CustomData
+     * @see CustomData
      * @version DragonBones 5.0
      * @language zh_CN
      */

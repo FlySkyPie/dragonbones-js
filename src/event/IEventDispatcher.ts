@@ -60,7 +60,7 @@ export interface IEventDispatcher {
      * - Dispatches an event into the event flow.
      * @param type - Event type.
      * @param eventObject - Event object.
-     * @see dragonBones.EventObject
+     * @see EventObject
      * @version DragonBones 4.5
      * @language en_US
      */
@@ -68,7 +68,7 @@ export interface IEventDispatcher {
      * - 分派特定的事件到事件流中。
      * @param type - 事件类型。
      * @param eventObject - 事件数据。
-     * @see dragonBones.EventObject
+     * @see EventObject
      * @version DragonBones 4.5
      * @language zh_CN
      */

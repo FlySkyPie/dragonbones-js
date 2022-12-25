@@ -26,17 +26,17 @@ import { BoundingBoxType } from "../core/DragonBones";
 
 /**
  * - The base class of bounding box data.
- * @see dragonBones.RectangleData
- * @see dragonBones.EllipseData
- * @see dragonBones.PolygonData
+ * @see RectangleData
+ * @see EllipseData
+ * @see PolygonData
  * @version DragonBones 5.0
  * @language en_US
  */
 /**
  * - 边界框数据基类。
- * @see dragonBones.RectangleData
- * @see dragonBones.EllipseData
- * @see dragonBones.PolygonData
+ * @see RectangleData
+ * @see EllipseData
+ * @see PolygonData
  * @version DragonBones 5.0
  * @language zh_CN
  */
