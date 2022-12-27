@@ -25,14 +25,14 @@ import { IAnimatable } from "./IAnimatable";
 
 /**
  * - Worldclock provides clock support for animations, advance time for each IAnimatable object added to the instance.
- * @see IAnimateble
+ * @see IAnimatable
  * @see Armature
  * @version DragonBones 3.0
  * @language en_US
  */
 /**
  * - WorldClock 对动画提供时钟支持，为每个加入到该实例的 IAnimatable 对象更新时间。
- * @see IAnimateble
+ * @see IAnimatable
  * @see Armature
  * @version DragonBones 3.0
  * @language zh_CN
