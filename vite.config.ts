@@ -11,6 +11,12 @@ export default defineConfig({
       formats: ['es'],
       fileName: 'dragonbones-js',
     },
+    sourcemap: true,
   },
   plugins: [dts()],
+  // resolve: {
+  //   alias: {
+  //     "@": path.resolve(__dirname, "./src"),
+  //   },
+  // },
 });

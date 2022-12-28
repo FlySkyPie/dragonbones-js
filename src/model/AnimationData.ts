@@ -237,13 +237,6 @@ export class AnimationData extends BaseObject {
      * @internal
      */
     public cacheFrames(frameRate: number): void {
-        if (this.cacheFrameRate === undefined ||
-            this.scale === undefined ||
-            this.duration === undefined ||
-            this.parent) {
-            throw new Error();
-        }
-
         if (this.cacheFrameRate > 0.0) { // TODO clear cache.
             return;
         }

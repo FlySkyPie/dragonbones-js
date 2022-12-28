@@ -1,6 +1,6 @@
 import { Armature } from "./armature/Armature";
 import { IArmatureProxy } from "./armature/IArmatureProxy";
-import { BinaryOffset, BlendMode, BoneType, DragonBones } from "./core/DragonBones";
+import { BinaryOffset, BlendMode, BoneType, BoundingBoxType, DragonBones, OffsetMode } from "./core/DragonBones";
 import { EventObject } from "./event/EventObject";
 import { EventStringType } from "./event/IEventDispatcher";
 import { Animation } from './animation/Animation';
@@ -12,6 +12,10 @@ import { GeometryData } from "./model/DisplayData";
 import { Surface } from "./armature/Surface";
 import { TextureAtlasData, TextureData } from "./model/TextureAtlasData";
 import { SlotData } from "./model/ArmatureData";
+import { PolygonBoundingBoxData } from "./model/BoundingBoxData";
+import { Bone } from "./armature/Bone";
+import { AnimationState } from "./animation/AnimationState";
+import { Transform } from "./geom/Transform";
 
 export type { IArmatureProxy };
 export type { EventStringType };
@@ -33,3 +37,9 @@ export { Surface };
 export { TextureAtlasData };
 export { TextureData };
 export { SlotData };
+export { BoundingBoxType };
+export { PolygonBoundingBoxData };
+export { OffsetMode };
+export { Bone };
+export { AnimationState };
+export { Transform };

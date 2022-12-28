@@ -78,32 +78,32 @@ export class Armature extends BaseObject implements IAnimatable {
     /**
      * @private
      */
-    public userData: any;
+    public userData: any | null = null;
     /**
      * @internal
      */
-    public _lockUpdate?: boolean;
-    private _slotsDirty?: boolean;
-    private _zOrderDirty?: boolean;
+    public _lockUpdate: boolean = false;
+    private _slotsDirty?: boolean = true;
+    private _zOrderDirty?: boolean = false;
     /**
      * @internal
      */
-    public _zIndexDirty?: boolean;
+    public _zIndexDirty?: boolean = false;
     /**
      * @internal
      */
-    public _alphaDirty?: boolean;
-    private _flipX?: boolean;
-    private _flipY?: boolean;
+    public _alphaDirty?: boolean = true;
+    private _flipX?: boolean = false;
+    private _flipY?: boolean = false;
     /**
      * @internal
      */
-    public _cacheFrameIndex?: number;
-    private _alpha?: number;
+    public _cacheFrameIndex?: number = -1;
+    private _alpha?: number = 1.0;
     /**
      * @internal
      */
-    public _globalAlpha?: number;
+    public _globalAlpha?: number = 1.0;
     private readonly _bones: Array<Bone> = [];
     private readonly _slots: Array<Slot> = [];
     /**
@@ -117,12 +117,12 @@ export class Armature extends BaseObject implements IAnimatable {
     public _armatureData: ArmatureData | null = null;
     private _animation: Animation | null = null; // Initial value.
     private _proxy: IArmatureProxy | null = null; // Initial value.
-    private _display: any;
+    private _display: any = null;
     /**
      * @internal
      */
     public _replaceTextureAtlasData: TextureAtlasData | null = null; // Initial value.
-    private _replacedTexture: any;
+    private _replacedTexture: any = null;
     /**
      * @internal
      */
