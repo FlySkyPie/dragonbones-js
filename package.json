@@ -1,6 +1,5 @@
 {
-  "name": "dragonbones-js",
-  "private": true,
+  "name": "@flyskypie/dragonbones-js",
   "version": "0.1.0",
   "main": "./dist/dragonbones-js.js",
   "types": "./dist/index.d.ts",
@@ -12,6 +11,10 @@
     "package.json",
     "README.md"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlySkyPie/dragonbones-js.git"
+  },
   "scripts": {
     "build": "tsc && vite build",
     "test": "vitest"
