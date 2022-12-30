@@ -86,13 +86,9 @@ export class DragonBonesData extends BaseObject {
      * @private
      */
     public stage: ArmatureData | null = null;
-    /**
-     * @internal
-     */
+
     public readonly frameIndices: Array<number> = [];
-    /**
-     * @internal
-     */
+
     public readonly cachedFrames: Array<number> = [];
     /**
      * - All armature data names.
@@ -109,37 +105,21 @@ export class DragonBonesData extends BaseObject {
      * @private
      */
     public readonly armatures: { [key: string]: ArmatureData } = {};
-    /**
-     * @internal
-     */
+
     public binary: ArrayBuffer | null = null;
-    /**
-     * @internal
-     */
+
     public intArray: Int16Array | null = null;
-    /**
-     * @internal
-     */
+
     public floatArray: Float32Array | null = null;
-    /**
-     * @internal
-     */
+
     public frameIntArray: Int16Array | null = null;
-    /**
-     * @internal
-     */
+
     public frameFloatArray: Float32Array | null = null;
-    /**
-     * @internal
-     */
+
     public frameArray: Int16Array | null = null;
-    /**
-     * @internal
-     */
+
     public timelineArray: Uint16Array | null = null;
-    /**
-     * @internal
-     */
+
     public colorArray: Int16Array | Uint16Array | null = null;
     /**
      * @private
@@ -175,9 +155,7 @@ export class DragonBonesData extends BaseObject {
         this.colorArray = null; //
         this.userData = null;
     }
-    /**
-     * @internal
-     */
+
     public addArmature(value: ArmatureData): void {
         if (value.name === undefined) {
             throw new Error(`value.name is undefined.`);

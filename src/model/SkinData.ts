@@ -75,9 +75,7 @@ export class SkinData extends BaseObject {
         // this.displays.clear();
         this.parent = null; //
     }
-    /**
-     * @internal
-     */
+
     public addDisplay(slotName: string, value: DisplayData | null): void {
         if (!(slotName in this.displays)) {
             this.displays[slotName] = [];

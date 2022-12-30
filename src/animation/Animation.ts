@@ -162,9 +162,7 @@ export class Animation extends BaseObject {
                 break;
         }
     }
-    /**
-     * @internal
-     */
+
     public init(armature: Armature): void {
         if (this._armature !== null) {
             return;
@@ -173,9 +171,7 @@ export class Animation extends BaseObject {
         this._armature = armature;
         this._animationConfig = BaseObject.borrowObject(AnimationConfig);
     }
-    /**
-     * @internal
-     */
+
     public advanceTime(passedTime: number): void {
         if (passedTime < 0.0) { // Only animationState can reverse play.
             passedTime = -passedTime;
@@ -795,9 +791,7 @@ export class Animation extends BaseObject {
 
         return animationState;
     }
-    /**
-     * @internal
-     */
+
     public getBlendState(type: string, name: string, target: BaseObject): BlendState {
         if (!(type in this._blendStates)) {
             this._blendStates[type] = {};

@@ -79,58 +79,38 @@ export class Armature extends BaseObject implements IAnimatable {
      * @private
      */
     public userData: any | null = null;
-    /**
-     * @internal
-     */
+
     public _lockUpdate: boolean = false;
     private _slotsDirty?: boolean = true;
     private _zOrderDirty?: boolean = false;
-    /**
-     * @internal
-     */
+
     public _zIndexDirty?: boolean = false;
-    /**
-     * @internal
-     */
+
     public _alphaDirty?: boolean = true;
     private _flipX?: boolean = false;
     private _flipY?: boolean = false;
-    /**
-     * @internal
-     */
+
     public _cacheFrameIndex?: number = -1;
     private _alpha?: number = 1.0;
-    /**
-     * @internal
-     */
+
     public _globalAlpha?: number = 1.0;
     private readonly _bones: Array<Bone> = [];
     private readonly _slots: Array<Slot> = [];
-    /**
-     * @internal
-     */
+
     public readonly _constraints: Array<Constraint> = [];
     private readonly _actions: Array<EventObject> = [];
-    /**
-     * @internal
-     */
+
     public _armatureData: ArmatureData | null = null;
     private _animation: Animation | null = null; // Initial value.
     private _proxy: IArmatureProxy | null = null; // Initial value.
     private _display: any = null;
-    /**
-     * @internal
-     */
+
     public _replaceTextureAtlasData: TextureAtlasData | null = null; // Initial value.
     private _replacedTexture: any = null;
-    /**
-     * @internal
-     */
+
     public _dragonBones: DragonBones | null = null;
     private _clock: WorldClock | null = null; // Initial value.
-    /**
-     * @internal
-     */
+
     public _parent: Slot | null = null;
 
     protected _onClear(): void {
@@ -193,9 +173,7 @@ export class Armature extends BaseObject implements IAnimatable {
         this._clock = null;
         this._parent = null;
     }
-    /**
-     * @internal
-     */
+
     public _sortZOrder(slotIndices: Array<number> | Int16Array | null, offset: number): void {
         if (this._armatureData === null) {
             throw new Error(`this._armatureData is undefined.`);
@@ -223,33 +201,25 @@ export class Armature extends BaseObject implements IAnimatable {
             this._zOrderDirty = !isOriginal;
         }
     }
-    /**
-     * @internal
-     */
+
     public _addBone(value: Bone): void {
         if (this._bones.indexOf(value) < 0) {
             this._bones.push(value);
         }
     }
-    /**
-     * @internal
-     */
+
     public _addSlot(value: Slot): void {
         if (this._slots.indexOf(value) < 0) {
             this._slots.push(value);
         }
     }
-    /**
-     * @internal
-     */
+
     public _addConstraint(value: Constraint): void {
         if (this._constraints.indexOf(value) < 0) {
             this._constraints.push(value);
         }
     }
-    /**
-     * @internal
-     */
+
     public _bufferAction(action: EventObject, append: boolean): void {
         if (this._actions.indexOf(action) < 0) {
             if (append) {
@@ -290,9 +260,7 @@ export class Armature extends BaseObject implements IAnimatable {
             this._dragonBones.bufferObject(this);
         }
     }
-    /**
-     * @internal
-     */
+
     public init(
         armatureData: ArmatureData,
         proxy: IArmatureProxy, display: any, dragonBones: DragonBones

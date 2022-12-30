@@ -89,17 +89,11 @@ export abstract class TransformObject extends BaseObject {
      */
     public userData: any;
     protected _globalDirty: boolean = false;
-    /**
-     * @internal
-     */
+
     public _alpha: number = 1.0;
-    /**
-     * @internal
-     */
+
     public _globalAlpha: number = 1.0;
-    /**
-     * @internal
-     */
+
     public _armature: Armature | null = null;
     /**
      */

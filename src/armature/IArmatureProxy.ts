@@ -38,17 +38,11 @@ import { Armature } from "./Armature";
  * @language zh_CN
  */
 export interface IArmatureProxy extends IEventDispatcher {
-    /**
-     * @internal
-     */
+
     dbInit(armature: Armature): void;
-    /**
-     * @internal
-     */
+
     dbClear(): void;
-    /**
-     * @internal
-     */
+
     dbUpdate(): void;
     /**
      * - Dispose the instance and the Armature instance. (The Armature instance will return to the object pool)

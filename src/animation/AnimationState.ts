@@ -218,24 +218,16 @@ export class AnimationState extends BaseObject {
      * @internal
      */
     public _subFadeState: number = 1;
-    /**
-     * @internal
-     */
+
     public _position: number = 0.0;
-    /**
-     * @internal
-     */
+
     public _duration: number = 0.0;
     private _weight: number = 1.0;
     private _fadeTime: number = 0.0;
     private _time: number = 0.0;
-    /**
-     * @internal
-     */
+
     public _fadeProgress: number = 0.0;
-    /**
-     * @internal
-     */
+
     public _weightResult: number = 0.0;
     private readonly _boneMask: Array<string> = [];
     private readonly _boneTimelines: Array<TimelineState> = [];
@@ -247,16 +239,12 @@ export class AnimationState extends BaseObject {
     private readonly _poseTimelines: Array<TimelineState> = [];
     private _animationData: AnimationData | null = null;
     private _armature: Armature | null = null;
-    /**
-     * @internal
-     */
+
     public _actionTimeline: ActionTimelineState | null = null; // Initial value.
     private _zOrderTimeline: ZOrderTimelineState | null = null; // Initial value.
     private _activeChildA: AnimationState | null = null;
     private _activeChildB: AnimationState | null = null;
-    /**
-     * @internal
-     */
+
     public _parent: AnimationState | null = null;
 
     protected _onClear(): void {
@@ -787,9 +775,7 @@ export class AnimationState extends BaseObject {
             }
         }
     }
-    /**
-     * @internal
-     */
+
     public init(armature: Armature, animationData: AnimationData, animationConfig: AnimationConfig): void {
         if (this._armature !== null) {
             return;
@@ -870,9 +856,7 @@ export class AnimationState extends BaseObject {
             this._zOrderTimeline.init(this._armature, this, this._animationData.zOrderTimeline);
         }
     }
-    /**
-     * @internal
-     */
+
     public advanceTime(passedTime: number, cacheFrameRate: number): void {
         // Update fade time.
         if (this._fadeState !== 0 || this._subFadeState !== 0) {
@@ -1418,9 +1402,7 @@ export class AnimationState extends BaseObject {
             animationState._parent = this;
         }
     }
-    /**
-     * @internal
-     */
+
     public activeTimeline(): void {
         for (const timeline of this._slotTimelines) {
             timeline.dirty = true;
@@ -1640,9 +1622,7 @@ export class AnimationState extends BaseObject {
         return this._animationData;
     }
 }
-/**
- * @internal
- */
+
 export class BlendState extends BaseObject {
     public static readonly BONE_TRANSFORM: string = "boneTransform";
     public static readonly BONE_ALPHA: string = "boneAlpha";

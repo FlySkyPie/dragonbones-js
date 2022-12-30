@@ -233,9 +233,7 @@ export class AnimationData extends BaseObject {
         this.zOrderTimeline = null;
         this.parent = null; //
     }
-    /**
-     * @internal
-     */
+
     public cacheFrames(frameRate: number): void {
         if (this.cacheFrameRate > 0.0) { // TODO clear cache.
             return;
@@ -365,9 +363,7 @@ export class TimelineData extends BaseObject {
         this.frameIndicesOffset = -1;
     }
 }
-/**
- * @internal
- */
+
 export class AnimationTimelineData extends TimelineData {
     public static toString(): string {
         return "[class dragonBones.AnimationTimelineData]";

@@ -46,9 +46,7 @@ export abstract class ConstraintData extends BaseObject {
         this.bone = null;
     }
 }
-/**
- * @internal
- */
+
 export class IKConstraintData extends ConstraintData {
     public static toString(): string {
         return "[class dragonBones.IKConstraintData]";
@@ -66,9 +64,7 @@ export class IKConstraintData extends ConstraintData {
         this.weight = 1.0;
     }
 }
-/**
- * @internal
- */
+
 export class PathConstraintData extends ConstraintData {
     public static toString(): string {
         return "[class dragonBones.PathConstraintData]";

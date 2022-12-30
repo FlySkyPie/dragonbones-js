@@ -28,9 +28,7 @@ import { SurfaceData } from "../model/ArmatureData";
 import { Armature } from "./Armature";
 import { Bone } from "./Bone";
 
-/**
- * @internal
- */
+
 export class Surface extends Bone {
     public static toString(): string {
         return "[class dragonBones.Surface]";
@@ -531,9 +529,7 @@ export class Surface extends Bone {
             }
         }
     }
-    /**
-     * @internal
-     */
+
     public update(cacheFrameIndex: number): void {
         if (cacheFrameIndex >= 0 && this._cachedFrameIndices !== null) {
             const cachedFrameIndex = this._cachedFrameIndices[cacheFrameIndex];

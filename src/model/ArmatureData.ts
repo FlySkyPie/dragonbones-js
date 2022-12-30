@@ -233,9 +233,7 @@ export class ArmatureData extends BaseObject {
         this.userData = null;
         this.parent = null; //
     }
-    /**
-     * @internal
-     */
+
     public sortBones(): void {
         const total = this.sortedBones.length;
         if (total <= 0) {
@@ -277,9 +275,7 @@ export class ArmatureData extends BaseObject {
             count++;
         }
     }
-    /**
-     * @internal
-     */
+
     public cacheFrames(frameRate: number): void {
         if (this.cacheFrameRate > 0) { // TODO clear cache.
             return;
@@ -290,9 +286,7 @@ export class ArmatureData extends BaseObject {
             this.animations[k].cacheFrames(this.cacheFrameRate);
         }
     }
-    /**
-     * @internal
-     */
+
     public setCacheFrame(globalTransformMatrix: Matrix, transform: Transform): number {
         if (this.parent === null) {
             throw new Error(`this.parent is null.`);
@@ -315,9 +309,7 @@ export class ArmatureData extends BaseObject {
 
         return arrayOffset;
     }
-    /**
-     * @internal
-     */
+
     public getCacheFrame(globalTransformMatrix: Matrix, transform: Transform, arrayOffset: number): void {
         if (this.parent === null) {
             throw new Error(`this.parent is nul.`);
@@ -337,9 +329,7 @@ export class ArmatureData extends BaseObject {
         transform.x = globalTransformMatrix.tx;
         transform.y = globalTransformMatrix.ty;
     }
-    /**
-     * @internal
-     */
+
     public addBone(value: BoneData): void {
         if (value.name === undefined) {
             throw new Error(`value.name is undefined.`);
@@ -353,9 +343,7 @@ export class ArmatureData extends BaseObject {
         this.bones[value.name] = value;
         this.sortedBones.push(value);
     }
-    /**
-     * @internal
-     */
+
     public addSlot(value: SlotData): void {
         if (value.name === undefined) {
             throw new Error(`value.name is undefined.`);
@@ -369,9 +357,7 @@ export class ArmatureData extends BaseObject {
         this.slots[value.name] = value;
         this.sortedSlots.push(value);
     }
-    /**
-     * @internal
-     */
+
     public addConstraint(value: ConstraintData): void {
         if (value.name === undefined) {
             throw new Error(`value.name is undefined.`);
@@ -384,9 +370,7 @@ export class ArmatureData extends BaseObject {
 
         this.constraints[value.name] = value;
     }
-    /**
-     * @internal
-     */
+
     public addSkin(value: SkinData): void {
         if (value.name === undefined) {
             throw new Error(`value.name is undefined.`);
@@ -407,9 +391,7 @@ export class ArmatureData extends BaseObject {
             this.defaultSkin = value;
         }
     }
-    /**
-     * @internal
-     */
+
     public addAnimation(value: AnimationData): void {
         if (value.name === undefined) {
             throw new Error(`value.name is undefined.`);
@@ -427,9 +409,7 @@ export class ArmatureData extends BaseObject {
             this.defaultAnimation = value;
         }
     }
-    /**
-     * @internal
-     */
+
     public addAction(value: ActionData, isDefault: boolean): void {
         if (isDefault) {
             this.defaultActions.push(value);
@@ -614,9 +594,7 @@ export class BoneData extends BaseObject {
         this.parent = null;
     }
 }
-/**
- * @internal
- */
+
 export class SurfaceData extends BoneData {
     public static toString(): string {
         return "[class dragonBones.SurfaceData]";
@@ -646,13 +624,9 @@ export class SurfaceData extends BoneData {
  * @language zh_CN
  */
 export class SlotData extends BaseObject {
-    /**
-     * @internal
-     */
+
     public static readonly DEFAULT_COLOR: ColorTransform = new ColorTransform();
-    /**
-     * @internal
-     */
+
     public static createColor(): ColorTransform {
         return new ColorTransform();
     }

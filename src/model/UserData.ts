@@ -78,21 +78,15 @@ export class UserData extends BaseObject {
         this.floats.length = 0;
         this.strings.length = 0;
     }
-    /**
-     * @internal
-     */
+
     public addInt(value: number): void {
         this.ints.push(value);
     }
-    /**
-     * @internal
-     */
+
     public addFloat(value: number): void {
         this.floats.push(value);
     }
-    /**
-     * @internal
-     */
+
     public addString(value: string): void {
         this.strings.push(value);
     }

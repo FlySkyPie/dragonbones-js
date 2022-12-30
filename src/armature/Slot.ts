@@ -211,13 +211,9 @@ export abstract class Slot extends TransformObject {
     protected _visibleDirty: boolean = false;
     protected _blendModeDirty: boolean = false;
     protected _zOrderDirty: boolean = false;
-    /**
-     * @internal
-     */
+
     public _colorDirty: boolean = false;
-    /**
-     * @internal
-     */
+
     public _verticesDirty: boolean = false;
     protected _transformDirty: boolean = false;
     protected _visible: boolean = true;
@@ -225,46 +221,26 @@ export abstract class Slot extends TransformObject {
     protected _displayIndex: number = -1;
     protected _animationDisplayIndex: number = -1;
     protected _cachedFrameIndex: number = -1;
-    /**
-     * @internal
-     */
+
     public _zOrder: number = 0;
-    /**
-     * @internal
-     */
+
     public _zIndex: number = 0;
-    /**
-     * @internal
-     */
+
     public _pivotX: number = 0.0;
-    /**
-     * @internal
-     */
+
     public _pivotY: number = 0.0;
     protected readonly _localMatrix: Matrix = new Matrix();
-    /**
-     * @internal
-     */
+
     public readonly _colorTransform: ColorTransform = new ColorTransform();
-    /**
-     * @internal
-     */
+
     public readonly _displayFrames: Array<DisplayFrame> = [];
-    /**
-     * @internal
-     */
+
     public readonly _geometryBones: Array<Bone | null> = [];
-    /**
-     * @internal
-     */
+
     public _slotData: SlotData | null = null;
-    /**
-     * @internal
-     */
+
     public _displayFrame: DisplayFrame | null = null;
-    /**
-     * @internal
-     */
+
     public _geometryData: GeometryData | null = null;
     protected _boundingBoxData: BoundingBoxData | null = null;
     protected _textureData: TextureData | null = null;
@@ -276,9 +252,7 @@ export abstract class Slot extends TransformObject {
      * @private
      */
     protected _parent: Bone | null = null;
-    /**
-     * @internal
-     */
+
     public _cachedFrameIndices: Array<number> | null = null;
 
     protected _onClear(): void {
@@ -359,9 +333,7 @@ export abstract class Slot extends TransformObject {
     protected abstract _replaceDisplay(value: any): void;
     protected abstract _removeDisplay(): void;
     protected abstract _updateZOrder(): void;
-    /**
-     * @internal
-     */
+
     public abstract _updateVisible(): void;
     protected abstract _updateBlendMode(): void;
     protected abstract _updateColor(): void;
@@ -379,9 +351,7 @@ export abstract class Slot extends TransformObject {
 
         return false;
     }
-    /**
-     * @internal
-     */
+
     public _isBonesUpdate(): boolean {
         for (const bone of this._geometryBones) {
             if (bone !== null && bone._childrenTransformDirty) {
@@ -391,9 +361,7 @@ export abstract class Slot extends TransformObject {
 
         return false;
     }
-    /**
-     * @internal
-     */
+
     public _updateAlpha() {
         if (this._parent === null) {
             throw new Error(`this._parent is null.`);
@@ -643,9 +611,7 @@ export abstract class Slot extends TransformObject {
             this._globalDirty = true;
         }
     }
-    /**
-     * @internal
-     */
+
     public _setDisplayIndex(value: number, isAnimation: boolean = false): void {
         if (isAnimation) {
             if (this._animationDisplayIndex === value) {
@@ -663,9 +629,7 @@ export abstract class Slot extends TransformObject {
         this._displayDataDirty = true;
         this._displayDirty = this._displayIndex < 0 || this._display !== this._displayFrames[this._displayIndex].display;
     }
-    /**
-     * @internal
-     */
+
     public _setZOrder(value: number): boolean {
         if (this._zOrder === value) {
             // return false;
@@ -676,17 +640,13 @@ export abstract class Slot extends TransformObject {
 
         return this._zOrderDirty;
     }
-    /**
-     * @internal
-     */
+
     public _setColor(value: ColorTransform): boolean {
         this._colorTransform.copyFrom(value);
 
         return this._colorDirty = true;
     }
-    /**
-     * @internal
-     */
+
     public init(slotData: SlotData, armatureValue: Armature, rawDisplay: any, meshDisplay: any): void {
         if (this._slotData !== null) {
             return;
@@ -733,9 +693,7 @@ export abstract class Slot extends TransformObject {
         this._onUpdateDisplay();
         this._addDisplay();
     }
-    /**
-     * @internal
-     */
+
     public update(cacheFrameIndex: number): void {
         if (this._displayDataDirty) {
             this._updateDisplayData();

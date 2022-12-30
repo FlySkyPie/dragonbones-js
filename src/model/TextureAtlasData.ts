@@ -116,13 +116,9 @@ export abstract class TextureAtlasData extends BaseObject {
             this.textures[k] = texture;
         }
     }
-    /**
-     * @internal
-     */
+
     public abstract createTexture(): TextureData;
-    /**
-     * @internal
-     */
+
     public addTexture(value: TextureData): void {
         if (value.name === undefined) {
             throw new Error(`value.name is undefined.`);

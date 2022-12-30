@@ -64,36 +64,24 @@ export class Bone extends TransformObject {
      * @language zh_CN
      */
     public offsetMode: OffsetMode = OffsetMode.Additive;
-    /**
-     * @internal
-     */
+
     public readonly animationPose: Transform = new Transform();
-    /**
-     * @internal
-     */
+
     public _transformDirty: boolean = false;
-    /**
-     * @internal
-     */
+
     public _childrenTransformDirty: boolean = false;
     protected _localDirty: boolean = true;
-    /**
-     * @internal
-     */
+
     public _hasConstraint: boolean = false;
     protected _visible: boolean = true;
     protected _cachedFrameIndex: number = -1;
-    /**
-     * @internal
-     */
+
     public _boneData: BoneData | null = null;
     /**
      * @private
      */
     protected _parent: Bone | null = null;
-    /**
-     * @internal
-     */
+
     public _cachedFrameIndices: Array<number> | null = null;
 
     protected _onClear(): void {
@@ -351,9 +339,7 @@ export class Bone extends TransformObject {
             global.toMatrix(globalTransformMatrix);
         }
     }
-    /**
-     * @internal
-     */
+
     public _updateAlpha() {
         if (this._alpha === undefined) {
             throw new Error(`this._alpha is undefined.`);
@@ -380,9 +366,7 @@ export class Bone extends TransformObject {
             this._globalAlpha = this._alpha * this._armature._globalAlpha;
         }
     }
-    /**
-     * @internal
-     */
+
     public init(boneData: BoneData, armatureValue: Armature): void {
         if (this._boneData !== null) {
             return;
@@ -400,9 +384,7 @@ export class Bone extends TransformObject {
         //
         this.origin = this._boneData.transform;
     }
-    /**
-     * @internal
-     */
+
     public update(cacheFrameIndex: number): void {
         if (this._armature === null) {
             throw new Error(`this._armature is null.`);
@@ -494,9 +476,7 @@ export class Bone extends TransformObject {
 
         this._localDirty = true;
     }
-    /**
-     * @internal
-     */
+
     public updateByConstraint(): void {
         if (this._localDirty) {
             this._localDirty = false;

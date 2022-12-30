@@ -32,9 +32,7 @@ import { Armature } from "./Armature";
 import { Bone } from "./Bone";
 import { DisplayFrame, Slot } from "./Slot";
 
-/**
- * @internal
- */
+
 export abstract class Constraint extends BaseObject {
     protected static readonly _helpMatrix: Matrix = new Matrix();
     protected static readonly _helpTransform: Transform = new Transform();
@@ -76,9 +74,7 @@ export abstract class Constraint extends BaseObject {
         return this._constraintData.name;
     }
 }
-/**
- * @internal
- */
+
 export class IKConstraint extends Constraint {
     public static toString(): string {
         return "[class dragonBones.IKConstraint]";
@@ -279,9 +275,7 @@ export class IKConstraint extends Constraint {
     }
 }
 
-/**
- * @internal
- */
+
 export class PathConstraint extends Constraint {
 
     public dirty: boolean = false;
